@@ -95,7 +95,7 @@ export default function HomePage() {
         </Row>
       </section>
 
-      <section style={{ margin: "4rem 0 0 0" }}>
+      <section style={{ margin: "4rem 0 4rem 0" }}>
         <Row>
           <Col className="d-flex justify-content-center align-items-center">
             <div style={{ textAlign: "center", width: "70%" }}>
