@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Button, Row, Col, CardGroup,} from "react-bootstrap";
+import {Link} from "react-router-dom";
 import bgimg from "../../images/hero-background.jpg";
 import "./HomePage.css";
 import ServiceCards from "./ServiceCards";
@@ -33,8 +34,8 @@ export default function HomePage() {
             </div>
             <Row className="mt-5">
               <Col>
-                <Button className="shopNow-btn">Shop Now</Button>
-                <Button className="ms-5 signIn-btn">Sign In</Button>
+              <Link to="/shop"><Button className="shopNow-btn">Shop Now</Button></Link>
+              <Link to="/login"><Button className="ms-5 signIn-btn">Sign In</Button></Link>
               </Col>
             </Row>
           </div>
@@ -89,7 +90,7 @@ export default function HomePage() {
                 obcaecati temporibus provident in rerum hic expedita veniam
                 deserunt nostrum velit!
               </p>
-              <Button className="shopNow-btn">Shop Now</Button>
+              <Link to="/shop"><Button className="shopNow-btn">Shop Now</Button></Link>
             </div>
           </Col>
         </Row>
@@ -103,7 +104,7 @@ export default function HomePage() {
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, ab consequuntur, quam maxime sed voluptas facere nemo saepe similique obcaecati aliquam voluptatibus voluptate eos facilis quod nam ratione tempora molestiae!
               </p>
-              <Button className="signIn-btn text-black" id="aboutBtn">More About US</Button>
+              <Link to="/about"><Button className="signIn-btn text-black" id="aboutBtn">More About US</Button></Link>
             </div>
           </Col>
           <Col
