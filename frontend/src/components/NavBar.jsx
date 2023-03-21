@@ -12,7 +12,6 @@ import "./navigationStyle.css"
 
 export default function NavBar() {
   return (
-    <div>
       <Navbar variant="dark" expand="lg" className="nav-bar">
         <Container>
           <Navbar.Brand className="me-5">RareAyur</Navbar.Brand>
@@ -45,6 +44,5 @@ export default function NavBar() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-    </div>
   );
 }
