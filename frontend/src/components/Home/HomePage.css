@@ -1,0 +1,37 @@
+.hero-section{
+    /* background: linear-gradient(
+        rgba(0, 0, 0, 0.1), 
+        rgba(0, 0, 0, 0.1)
+      ); */
+
+      background-blend-mode: darken;
+      background-repeat: no-repeat;
+      color: white;
+      text-align: center;
+      
+    
+}
+
+.shopNow-btn{
+    width: 130px;
+    height: 45px;
+    background-color: #00BF00 !important;
+    border: 1px solid #00BF00 !important;
+    border-radius: 50px !important;
+    text-align: center;
+
+}
+
+.signIn-btn{
+    width: 130px;
+    height: 45px;
+    background-color: transparent !important;
+    border: 1px solid #00BF00 !important;
+    border-radius: 50px !important;
+    text-align: center;
+
+}
+
+#aboutBtn{
+    width: 150px
+}
