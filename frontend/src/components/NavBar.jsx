@@ -13,7 +13,7 @@ import "./navigationStyle.css";
 
 export default function NavBar() {
   return (
-    <Navbar variant="dark" expand="lg" className="nav-bar">
+    <Navbar variant="dark" expand="lg" className="nav-bar" sticky="top">
       <Container>
         <Link to="/" className="nav-bar-link-comp">
           <Navbar.Brand className="me-5">RareAyur</Navbar.Brand>
