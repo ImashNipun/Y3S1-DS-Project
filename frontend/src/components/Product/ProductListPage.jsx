@@ -1,7 +1,9 @@
 import React from 'react'
-import { Container, Button, Row, Col, CardGroup,} from "react-bootstrap";
+import { Container,Row, Col,} from "react-bootstrap";
 import bimg from "../../images/productBanner.png";
 import "./productlist.css";
+import ProductFilter from './ProductFilter';
+import ProductCardContainer from './ProductCardContainer';
 
 export default function ProductListPage() {
   return (
@@ -10,7 +12,10 @@ export default function ProductListPage() {
             <Col style={{backgroundImage:`url(${bimg})`,height:"50vh"}} className='bannerImage'></Col>
         </Row>
         <Row>
-            <Col style={{height:"60vh"}}></Col>
+            <Col>
+              <ProductFilter/>
+              <ProductCardContainer/>
+            </Col>
         </Row>
     </Container>
   )

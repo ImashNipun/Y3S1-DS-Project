@@ -1,22 +1,34 @@
-import './App.css';
-import NavBar from './components/NavBar';
-import HomePage from './components/Home/HomePage';
-import Footer from './components/Footer';
-import ProductListPage from './components/Product/ProductListPage';
-import { BrowserRouter,Routes,Route } from 'react-router-dom';
+import "./App.css";
+
+import HomePage from "./components/Home/HomePage";
+
+import ProductListPage from "./components/Product/ProductListPage";
+import AdminDashboard from "./components/Admin/AdminDashboard";
+import Dashboard from "./components/Admin/Pages/Dashboard";
+import CustomerManagement from "./components/Admin/Pages/CustomerManagement";
+import OrderManagement from "./components/Admin/Pages/OrderManagement";
+import ProductManagement from "./components/Admin/Pages/ProductManagement";
+import SellerManagment from "./components/Admin/Pages/SellerManagment";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Layout } from "./components/Layout";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <NavBar/>
-      <Routes>
-      
-      <Route path='/' element={<HomePage/>}/>
-      <Route path='/shop' element={<ProductListPage/>}/>
-      
-      </Routes>
-      <Footer/>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<HomePage />} />
+            <Route path="/shop" element={<ProductListPage />} />
+          </Route>
+          <Route path="/admin" element={<AdminDashboard />}>
+            <Route index element={<Dashboard />} />
+            <Route path="/admin/customer" element={<CustomerManagement />} />
+            <Route path="/admin/order" element={<OrderManagement />} />
+            <Route path="/admin/product" element={<ProductManagement />} />
+            <Route path="/admin/seller" element={<SellerManagment />} />
+          </Route>
+        </Routes>
       </BrowserRouter>
     </div>
   );
