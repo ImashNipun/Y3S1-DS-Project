@@ -1,11 +1,12 @@
 import React from 'react'
 import { Container, Row, Col} from "react-bootstrap";
+import "./productlist.css"
 
 export default function ProductFilter() {
   return (
-    <Container>
+    <Container fluid>
         <Row>
-            <Col>This is the filter section</Col>
+            <Col className='filter-sec mt-5 mb-5'>This is the filter section</Col>
         </Row>
     </Container>
   )
