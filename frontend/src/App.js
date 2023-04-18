@@ -2,7 +2,7 @@ import "./App.css";
 
 import HomePage from "./components/Home/HomePage";
 
-import ProductListPage from "./components/Product/ProductListPage";
+import ProductListPage from "./components/Product/ProductList/ProductListPage";
 import AdminDashboard from "./components/Admin/AdminDashboard";
 import Dashboard from "./components/Admin/Pages/Dashboard";
 import CustomerManagement from "./components/Admin/Pages/CustomerManagement";
