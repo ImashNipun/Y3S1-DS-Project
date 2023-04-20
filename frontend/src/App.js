@@ -9,6 +9,7 @@ import CustomerManagement from "./components/Admin/Pages/CustomerManagement";
 import OrderManagement from "./components/Admin/Pages/OrderManagement";
 import ProductManagement from "./components/Admin/Pages/ProductManagement";
 import SellerManagment from "./components/Admin/Pages/SellerManagment";
+import CartPage from "./components/Cart/CartPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "./components/Layout";
 
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
             <Route path="/shop" element={<ProductListPage />} />
+            <Route path="/cart" element={<CartPage />} />
           </Route>
           <Route path="/admin" element={<AdminDashboard />}>
             <Route index element={<Dashboard />} />

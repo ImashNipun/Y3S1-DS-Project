@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Container, Row} from "react-bootstrap";
 import axios from "axios";
 import ProductCard from "./ProductCard";
+import { Cartcontext } from "../../../context/Context";
 
 export default function ProductCardContainer() {
   const [post, setPost] = useState([]);
@@ -21,6 +22,11 @@ export default function ProductCardContainer() {
       });
   }, []);
 
+  const Globalstate = useContext(Cartcontext);
+  const dispatch = Globalstate.dispatch;
+  // console.log(Globalstate);
+
+
   const renderCards = post.map((post) => (
     <ProductCard
       key={post.id}
@@ -28,6 +34,7 @@ export default function ProductCardContainer() {
       image="https://via.placeholder.com/600/771796"
       title={post.title}
       description={post.body}
+      handleDispatch = {dispatch}
     />
   ));
 

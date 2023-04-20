@@ -6,6 +6,15 @@ export default function ProductCard(props) {
   const id = props.id;
   const path = `/shop/${id}`;
 
+  const item ={
+    id : props.id,
+    image : props.image,
+    title : props.title,
+    desc : props.description,
+    quantity : 1,
+    price : 10
+  }
+
   return (
     <Col>
       <Card>
@@ -20,7 +29,7 @@ export default function ProductCard(props) {
             <Card.Text>{props.description}</Card.Text>
           </Card.Body>
         </Link>
-        <Button className="m-2">Add to Cart</Button>
+        <Button className="m-2" onClick={() => props.handleDispatch({ type: "ADD", payload: item })}>Add to Cart</Button>
       </Card>
     </Col>
   );
