@@ -1,0 +1,39 @@
+.cart-container{
+    background-color: rgb(230, 230, 230);
+    box-sizing: border-box;
+}
+
+.c-p-l-sec{
+    background-color: white;
+    min-height: 80vh;
+    
+}
+
+.cart-price-sec{
+    height: 40vh;
+    background-color: rgb(255, 255, 255);
+}
+
+.c-l-image{
+    width: 10vh;
+    height: 10vh;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+}
+
+/* .line{
+    background-color: aqua;
+} */
+
+.i-d-buttons{
+    width: 40px;
+    height: 40px;
+}
+
+.goto-checkout-btn{
+    width: 100%;
+    background-color: #00BF00 !important;
+    border-radius: 0% !important;
+    border: none !important;
+}

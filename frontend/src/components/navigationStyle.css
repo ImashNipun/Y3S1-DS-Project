@@ -19,3 +19,21 @@
 .nav-bar-link-comp:hover{
     color :#063700;
 }
+
+/* .bucket-container{
+    position: absolute;
+} */
+
+.cart-count{
+    position: relative;
+    font-size: 12px;
+    text-align: center;
+    right: 0;
+    top: -10px;
+    background-color: black;
+    width: 19px;
+    height: 19px;
+    border-radius: 50px;
+    padding: 0 !important;
+    margin: 0 !important;
+}

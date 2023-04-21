@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container,Row, Col,} from "react-bootstrap";
-import bimg from "../../images/productBanner.png";
-import "./productlist.css";
+import bimg from "../../../images/productBanner.png";
+import "../productlist.css";
 import ProductFilter from './ProductFilter';
 import ProductCardContainer from './ProductCardContainer';
 
