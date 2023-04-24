@@ -7,10 +7,6 @@ const productSchema=new schema({
         type:String,
         require:true
     },
-    productID:{
-        type:String,
-        require:true
-    },
     tital:{
         type:String,
         require:true
