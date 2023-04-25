@@ -11,6 +11,8 @@ import ProductManagement from "./components/Admin/Pages/ProductManagement";
 import SellerManagment from "./components/Admin/Pages/SellerManagment";
 import CartPage from "./components/Cart/CartPage";
 import SuccessPage from "./components/MassagesPages/SuccessPage";
+import About from "./components/Information/About";
+import QandA from "./components/Information/QandA";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "./components/Layout";
 
@@ -23,6 +25,8 @@ function App() {
             <Route index element={<HomePage />} />
             <Route path="/shop" element={<ProductListPage />} />
             <Route path="/cart" element={<CartPage />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/Q&A" element={<QandA />} />
             <Route path="/success" element={<SuccessPage />} />
           </Route>
           <Route path="/admin" element={<AdminDashboard />}>
