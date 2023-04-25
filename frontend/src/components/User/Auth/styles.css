@@ -1,0 +1,65 @@
+.frmsign {
+  margin-top: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: auto;
+  width: 30%;
+}
+.frmlogin{
+    margin-top: 150px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: auto;
+    width: 30%;
+  }
+.btnsign {
+  background-color: #00bf00 !important;
+  border: #00bf00 !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 50% !important;
+}
+.btn-container{
+    text-align: center;
+}
+.from-container {
+  margin: auto !important;
+  width: 50% !important;
+  height: 100vh;
+}
+.frmtext{
+    text-align: center !important;
+}
+.error {
+	font-size: 14px;
+	color: rgb(230, 14, 14);
+	text-align: center;
+}
+.navbar {
+	width: 100%;
+	height: 70px;
+	background-color: #00bf00;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.navbar h1 {
+	color: white;
+	font-size: 25px;
+	margin-left: 20px;
+}
+
+.whitebtn {
+	border: none;
+	outline: none;
+	padding: 12px 0;
+	background-color: white;
+	border-radius: 20px;
+	width: 120px;
+	font-weight: bold;
+	font-size: 14px;
+	cursor: pointer;
+	margin-right: 20px;
+}
+
