@@ -13,6 +13,9 @@ import CartPage from "./components/Cart/CartPage";
 import SuccessPage from "./components/MassagesPages/SuccessPage";
 import About from "./components/Information/About";
 import QandA from "./components/Information/QandA";
+import Login from "./components/User/Auth/Login";
+import Signup from "./components/User/Auth/Signup";
+import Logout from "./components/User/Auth/Logout";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "./components/Layout";
 
@@ -36,6 +39,9 @@ function App() {
             <Route path="/admin/product" element={<ProductManagement />} />
             <Route path="/admin/seller" element={<SellerManagment />} />
           </Route>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/logout" element={<Logout />} />
         </Routes>
       </BrowserRouter>
     </div>

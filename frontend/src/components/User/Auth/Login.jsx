@@ -4,10 +4,12 @@ import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Container, Row, Col } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [data, setData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
@@ -16,10 +18,11 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:5000/api/users/login";
+      const url = "http://localhost:5005/api/users/login";
       const { data: res } = await axios.post(url, data);
+      console.log(res);
       localStorage.setItem("token", res.data);
-      window.location = "http://localhost:3000/";
+      navigate("/about");
     } catch (error) {
       if (
         error.response &&

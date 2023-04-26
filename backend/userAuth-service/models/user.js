@@ -11,10 +11,10 @@ const userSchema = new mongoose.Schema({
   type: { type: String, required: true },
 });
 
-userSchema.methods.generateAuthToken = function () {
-  const token = jwt.sign({ _id: this._id }, process.env.JWTPRIVATEKEY);
-  return token;
-};
+// userSchema.methods.generateAuthToken = function () {
+//   const token = jwt.sign({ _id: this._id }, process.env.JWTPRIVATEKEY);
+//   return token;
+// };
 
 const User = mongoose.model("user", userSchema);
 
