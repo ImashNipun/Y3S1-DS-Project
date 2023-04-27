@@ -58,45 +58,24 @@ const authenticateUser = async (req, res) => {
       { expiresIn: "15m" }
     );
 
-    const refreshToken = jwt.sign({ username: user.name }, "gApYVNX8Z9iCm7Jt", {
+    const refreshToken = jwt.sign({ username: user.email }, "gApYVNX8Z9iCm7Jt", {
       expiresIn: "7d",
     });
 
-    // console.log(refreshToken);
-
-    // Create secure cookie with refresh token
-    // res.header("Access-Control-Allow-Headers", "*");
-    // res.header("Access-Control-Allow-Credentials", true);
-    // res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
-    // res.cookie("my cookie", "this is a demo cokkie", { httpOnly: false });
-    res.cookie("jwt", refreshToken);
-  //   res.cookie(`Cookie token name`,`encrypted cookie string Value`,{
-  //     maxAge: 5000,
-  //     // expires works the same as the maxAge
-  //     expires: new Date('01 12 2021'),
-  //     secure: true,
-  //     httpOnly: true,
-  //     sameSite: 'lax'
-  // });
-  // res.send('Cookie have been saved successfully');
-
-//   res.cookie('jwt', refreshToken, {
-//     httpOnly: true, //accessible only by web server 
-//     secure: true, //https
-//     sameSite: 'None', //cross-site cookie 
-//     maxAge: 7 * 24 * 60 * 60 * 1000 //cookie expiry: set to match rT
-// })
-
+      res.cookie('jwt', refreshToken, {
+        httpOnly: true, //accessible only by web server
+        // secure: true, //https
+        // sameSite: 'None', //cross-site cookie
+       // maxAge: 7 * 24 * 60 * 60 * 1000 //cookie expiry: set to match rT
+    });
     // Send accessToken containing username and roles
     // res.json({ accessToken });
 
-    res
-      .status(200)
-      .send({
-        data: user,
-        accesstoken: accessToken,
-        message: "Login is successfully",
-      });
+    res.status(200).send({
+      data: user,
+      accesstoken: accessToken,
+      message: "Login is successfully",
+    });
   } catch (error) {
     res.status(500).send({ message: "Internal Server Error" });
     console.log(error);
@@ -104,9 +83,21 @@ const authenticateUser = async (req, res) => {
 };
 
 const refresh = (req, res) => {
-  const cookies = req.cookies;
-  console.log(req.cookies);
-  // console.log(req);
+  // const cookies = req.headers.cookie.trim().split('=');
+  // // console.log(req.rawHeaders.Cookie);
+  // console.log(req.headers.cookie);
+  // // console.log(req);
+
+  let cookies = {};
+
+    const cookiesArray = req.headers.cookie.split(';');
+
+    cookiesArray.forEach((cookie) => {
+        const [key, value] = cookie.trim().split('=');
+        cookies[key] = value;
+    });
+
+    // console.log(cookies.jwt);
 
   if (!cookies?.jwt)
     return res.status(401).json({ message: "Unauthorized 101" });
@@ -115,8 +106,8 @@ const refresh = (req, res) => {
 
   jwt.verify(
     refreshToken,
-    process.env.REFRESH_TOKEN_SECRET,
-    asyncHandler(async (err, decoded) => {
+    "gApYVNX8Z9iCm7Jt",
+    async (err, decoded) => {
       if (err) return res.status(403).json({ message: "Forbidden" });
 
       const foundUser = await User.findOne({ email: decoded.username }).exec();
@@ -127,16 +118,16 @@ const refresh = (req, res) => {
       const accessToken = jwt.sign(
         {
           UserInfo: {
-            username: foundUser.user,
+            username: foundUser.email,
             roles: foundUser.type,
           },
         },
-        process.env.ACCESS_TOKEN_SECRET,
+        "eL6Jadh6jBThpztk",
         { expiresIn: "15m" }
       );
-
+        console.log(accessToken);
       res.json({ accessToken });
-    })
+    }
   );
 };
 

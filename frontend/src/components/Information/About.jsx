@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React from "react";
 import useRefreshToken from "../../hooks/useRefreshToken";
 
 export default function About() {
@@ -14,6 +14,7 @@ export default function About() {
 
   const refresh = useRefreshToken();
 
+  
   return (
     <div>
       This is about page

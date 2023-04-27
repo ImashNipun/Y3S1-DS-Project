@@ -18,10 +18,13 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:5005/api/users/login";
-      const { data: res } = await axios.post(url, data);
-      console.log(res);
-      localStorage.setItem("token", res.data);
+      const url = "http://localhost:5000/api/users/login";
+      const { data: res } = await axios.post(url, data,{
+        //AxiosRequestConfig parameter
+        withCredentials: true //correct
+      });
+      // console.log(res);
+      // localStorage.setItem("token", res.);
       navigate("/about");
     } catch (error) {
       if (
