@@ -7,7 +7,8 @@ import useAuth from "../hooks/useAuth";
 function ProfileDropdown() {
   const { auth, setAuth } = useAuth();
   const navigate = useNavigate();
-  const logout = async () => {
+  const logout = () => {
+    localStorage.clear("auth");
     setAuth({});
     navigate("/");
   };

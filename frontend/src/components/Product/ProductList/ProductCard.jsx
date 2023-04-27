@@ -12,7 +12,7 @@ export default function ProductCard(props) {
     title : props.title,
     desc : props.description,
     quantity : 1,
-    price : 10
+    price : props.price
   }
 
   return (

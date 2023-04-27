@@ -18,6 +18,7 @@ import Signup from "./components/User/Auth/Signup";
 import Logout from "./components/User/Auth/Logout";
 import BuyerProfile from "./components/User/Profile/BuyerProfile";
 import SellerProfile from "./components/User/Profile/SellerProfile";
+import SingleProduct from "./components/Product/SingleProduct/SingleProduct";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import AuthLayout from "./components/AuthLayout";
@@ -31,6 +32,7 @@ function App() {
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
             <Route path="/shop" element={<ProductListPage />} />
+            <Route path="/shop/:id" element={<SingleProduct />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/about" element={<About />} />
             <Route path="/Q&A" element={<QandA />} />
