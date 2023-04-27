@@ -14,7 +14,7 @@ app.use(express.static('public'));
 
 const PORT = process.env.PORT || 5002;
 
-app.use("/api/stripe",stripe)
+app.use("/",stripe)
 
 
 app.listen(PORT,()=>{

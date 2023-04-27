@@ -35,10 +35,16 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/Q&A" element={<QandA />} />
             <Route path="/success" element={<SuccessPage />} />
+            <Route element={<AuthLayout allowedR={"buyer"} />}>
+              <Route path="/customer/profile" element={<BuyerProfile />} />
+            </Route>
+            <Route element={<AuthLayout allowedR={"seller"} />}>
+            <Route path="/seller/profile" element={<SellerProfile />} />
+          </Route>
           </Route>
 
           {/* -------------------protected routes-------------------------- */}
-          <Route element={<AuthLayout allowedR={"admin"} />} >
+          <Route element={<AuthLayout allowedR={"admin"} />}>
             <Route path="/admin" element={<AdminDashboard />}>
               <Route index element={<Dashboard />} />
               <Route path="/admin/customer" element={<CustomerManagement />} />
@@ -47,23 +53,6 @@ function App() {
               <Route path="/admin/seller" element={<SellerManagment />} />
             </Route>
           </Route>
-          
-          {/*Include customer profile*/}
-
-          <Route element={<AuthLayout allowedR={"buyer"} />} >
-
-            <Route path="/customer/profile" element={<BuyerProfile />} />
-            
-          </Route>
-
-          {/*Include seller profile*/}
-
-          <Route element={<AuthLayout allowedR={"seller"}/>} >
-
-            <Route path="/seller/profile" element={<SellerProfile />} />
-            
-          </Route>
-
 
           {/* -------------------commen routes-------------------------- */}
           <Route path="/login" element={<Login />} />

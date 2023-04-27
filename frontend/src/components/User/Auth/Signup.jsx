@@ -1,9 +1,9 @@
 import "./styles.css";
 import { useState } from "react";
-import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Container, Row, Col } from "react-bootstrap";
+import axios from "../../../api/axios";
 
 const Signup = () => {
   const [data, setData] = useState({
@@ -23,7 +23,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:5005/api/users/signup";
+      const url = "/api/users/signup";
       const { data: res } = await axios.post(url, data);
       //   navigate("/login");
       window.location.href = "http://localhost:3000/login";

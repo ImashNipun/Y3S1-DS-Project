@@ -9,16 +9,15 @@ const connection = require('./dbconnection/dbconnection');
 const app = express();
 
 //midleware
-app.use(cors());
 app.use(express.json());
 
-app.use((req, res, next) => {
-  console.log(req.path, res.method);
-  next();
-});
+// app.use((req, res, next) => {
+//   console.log(req.path, res.method);
+//   next();
+// });
 
 //routes
-app.use("/api/products", productsRout);
+app.use("/", productsRout);
 
 //connect to DB
 connection.once('open',()=>{

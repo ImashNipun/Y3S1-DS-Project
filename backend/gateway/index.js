@@ -8,7 +8,6 @@ const app=express()
 
 const issue2options = {
   origin: true,
-  methods: ["POST"],
   credentials: true,
   maxAge: 3600
 };
@@ -19,6 +18,7 @@ app.use(express.json())
 app.use(cors(
   issue2options
 ));
+
 
 
 //routes

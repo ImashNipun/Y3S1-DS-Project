@@ -9,7 +9,6 @@ const app=express()
 
 //middle ware
 app.use(express.json())
-app.use(cors());
 
 app.use((req,res,next)=>{
     console.log(req.path,req.method)
@@ -17,7 +16,7 @@ app.use((req,res,next)=>{
 })
 
 //routes
-app.use('/api/orders',orderRoutes)
+app.use('/',orderRoutes)
 
 
 //db connection

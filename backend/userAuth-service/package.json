@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "node index",
+    "dev" : "nodemon index"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +19,9 @@
     "express-session": "^1.17.3",
     "joi-password-complexity": "^5.1.0",
     "jsonwebtoken": "^9.0.0",
-    "mongoose": "^7.0.4",
+    "mongoose": "^7.0.4"
+  },
+  "devDependencies": {
     "nodemon": "^2.0.22"
   }
 }
