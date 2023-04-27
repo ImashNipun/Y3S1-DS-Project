@@ -13,14 +13,21 @@ import CartPage from "./components/Cart/CartPage";
 import SuccessPage from "./components/MassagesPages/SuccessPage";
 import About from "./components/Information/About";
 import QandA from "./components/Information/QandA";
+import Login from "./components/User/Auth/Login";
+import Signup from "./components/User/Auth/Signup";
+import Logout from "./components/User/Auth/Logout";
+import BuyerProfile from "./components/User/Profile/BuyerProfile";
+import SellerProfile from "./components/User/Profile/SellerProfile";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "./components/Layout";
+import AuthLayout from "./components/AuthLayout";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Routes>
+          {/* -------------------public routes-------------------------- */}
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
             <Route path="/shop" element={<ProductListPage />} />
@@ -28,14 +35,29 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/Q&A" element={<QandA />} />
             <Route path="/success" element={<SuccessPage />} />
+            <Route element={<AuthLayout allowedR={"buyer"} />}>
+              <Route path="/customer/profile" element={<BuyerProfile />} />
+            </Route>
+            <Route element={<AuthLayout allowedR={"seller"} />}>
+            <Route path="/seller/profile" element={<SellerProfile />} />
           </Route>
-          <Route path="/admin" element={<AdminDashboard />}>
-            <Route index element={<Dashboard />} />
-            <Route path="/admin/customer" element={<CustomerManagement />} />
-            <Route path="/admin/order" element={<OrderManagement />} />
-            <Route path="/admin/product" element={<ProductManagement />} />
-            <Route path="/admin/seller" element={<SellerManagment />} />
           </Route>
+
+          {/* -------------------protected routes-------------------------- */}
+          <Route element={<AuthLayout allowedR={"admin"} />}>
+            <Route path="/admin" element={<AdminDashboard />}>
+              <Route index element={<Dashboard />} />
+              <Route path="/admin/customer" element={<CustomerManagement />} />
+              <Route path="/admin/order" element={<OrderManagement />} />
+              <Route path="/admin/product" element={<ProductManagement />} />
+              <Route path="/admin/seller" element={<SellerManagment />} />
+            </Route>
+          </Route>
+
+          {/* -------------------commen routes-------------------------- */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/logout" element={<Logout />} />
         </Routes>
       </BrowserRouter>
     </div>

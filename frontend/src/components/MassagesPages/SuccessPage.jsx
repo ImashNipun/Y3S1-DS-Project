@@ -5,7 +5,7 @@ import { Container,Col,Row } from 'react-bootstrap'
 export default function SuccessPage() {
     useEffect(()=>{
 
-        localStorage.clear('cart');
+        // localStorage.clear('cart');
         
 
     },[])

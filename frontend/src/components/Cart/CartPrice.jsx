@@ -1,12 +1,16 @@
 import React, { useContext } from "react";
 import { Col, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { Cartcontext } from "../../context/Context";
 import axios from "axios";
+import useAuth from "../../hooks/useAuth";
+// import axios from "axios"
 
 export default function CartPrice() {
   const Globalstate = useContext(Cartcontext);
   const state = Globalstate.state;
   const cart = state;
+  const { auth } = useAuth();
 
   console.log(state);
 
@@ -20,8 +24,7 @@ export default function CartPrice() {
         cart,
       })
       .then((res) => {
-
-        if(res.data.url){
+        if (res.data.url) {
           window.location.href = res.data.url;
         }
       })
@@ -36,7 +39,15 @@ export default function CartPrice() {
       <h4>Total Amount : $ {total}</h4>
       <h6>Shipping and taxes calculated at checkout</h6>
       <hr />
-      <Button className="goto-checkout-btn" onClick={handleCheckout}>Go to Checkout</Button>
+      {auth.userdata ? (
+        <Button className="goto-checkout-btn" onClick={handleCheckout}>
+          Go to Checkout
+        </Button>
+      ) : (
+        <Button>
+          <Link to="/login" style={{textDecoration:"none",color:"white",width:"100%"}}>Login to process</Link>
+        </Button>
+      )}
     </Col>
   );
 }

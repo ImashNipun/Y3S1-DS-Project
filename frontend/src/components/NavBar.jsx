@@ -11,10 +11,14 @@ import { BsSearch, BsCart2 } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import "./navigationStyle.css";
 import { Cartcontext } from "../context/Context";
+import useAuth from "../hooks/useAuth";
+import ProfileDropdown from "./ProfileDropdown";
 
 export default function NavBar() {
   const Globalstate = useContext(Cartcontext);
   const state = Globalstate.state;
+
+  const{auth} = useAuth();
 
   return (
     <Navbar variant="dark" expand="lg" className="nav-bar" sticky="top">
@@ -54,9 +58,10 @@ export default function NavBar() {
           </Nav>
           <Nav className="ms-5 nav-links">
             <Nav.Link className="me-3 text-white">
-              <Link to="/login" className="nav-bar-link-comp">
+              {auth.userdata? <ProfileDropdown/> : <Link to="/login" className="nav-bar-link-comp">
                 SignIn
-              </Link>
+              </Link>}
+              
             </Nav.Link>
             <Nav.Link className="me-3 text-white">
               <Link to="/cart" className="nav-bar-link-comp">
