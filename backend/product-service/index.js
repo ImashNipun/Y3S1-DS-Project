@@ -10,6 +10,7 @@ const app = express();
 
 //midleware
 app.use(express.json());
+app.use(cors());
 
 // app.use((req, res, next) => {
 //   console.log(req.path, res.method);
@@ -17,7 +18,7 @@ app.use(express.json());
 // });
 
 //routes
-app.use("/", productsRout);
+app.use("/api/products", productsRout);
 
 //connect to DB
 connection.once('open',()=>{

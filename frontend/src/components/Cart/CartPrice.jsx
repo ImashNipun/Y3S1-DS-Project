@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Cartcontext } from "../../context/Context";
-import axios from "../../api/axios";
+import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 // import axios from "axios"
 
@@ -20,7 +20,7 @@ export default function CartPrice() {
 
   const handleCheckout = () => {
     axios
-      .post("/api/stripe/create-checkout-session", {
+      .post("http://localhost:5002/api/stripe/create-checkout-session", {
         cart,
       })
       .then((res) => {

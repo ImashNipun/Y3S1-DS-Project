@@ -1,5 +1,4 @@
 const { User, validate } = require("../models/user");
-const bcrypt = require("bcrypt");
 // const express = require("express");
 const jwt = require("jsonwebtoken");
 const Joi = require("joi");
@@ -20,8 +19,8 @@ const createUser = async (req, res) => {
         .status(409)
         .send({ message: "User with given email already Exist!" });
 
-    const salt = await bcrypt.genSalt(Number(process.env.SALT));
-    const hashPassword = await bcrypt.hash(req.body.password, salt);
+    // const salt = await bcrypt.genSalt(Number(process.env.SALT));
+    const hashPassword = req.body.password;
 
     await new User({ ...req.body, password: hashPassword }).save();
     res.status(201).send({ message: "User created successfully" });
@@ -40,11 +39,7 @@ const authenticateUser = async (req, res) => {
     if (!user)
       return res.status(401).send({ message: "Invalid Email or Password" });
 
-    const validPassword = await bcrypt.compare(
-      req.body.password,
-      user.password
-    );
-    if (!validPassword)
+    if ( req.body.password != user.password)
       return res.status(401).send({ message: "Invalid Email or Password" });
 
     const accessToken = jwt.sign(

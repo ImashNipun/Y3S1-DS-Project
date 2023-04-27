@@ -34,7 +34,7 @@ const handleOrder = (data, customer, lineItems) => {
   payment_status = data.payment_status;
 
   axios
-    .post("http://localhost:5000/api/orders/", {
+    .post("http://localhost:5003/api/orders/", {
       userId,
       products,
       subtotal,
