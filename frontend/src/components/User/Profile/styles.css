@@ -1,0 +1,27 @@
+.frmp {
+    margin-top: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: auto;
+    width: 30%;
+  }
+  .btnp {
+    background-color: #00bf00 !important;
+    border: #00bf00 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 50% !important;
+    color: white !important;
+  }
+  .btnp-container{
+      text-align: center;
+  }
+  .fromp-container {
+    margin: auto !important;
+    width: 50% !important;
+    height: 100vh;
+  }
+
+  
+  
+  

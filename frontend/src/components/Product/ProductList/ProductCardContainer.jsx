@@ -9,7 +9,7 @@ export default function ProductCardContainer() {
 
   useEffect(() => {
     axios
-      .get("https://jsonplaceholder.typicode.com/posts")
+      .get("http://localhost:5004/api/products/")
       .then((response) => {
         return response.data;
       })
@@ -29,11 +29,12 @@ export default function ProductCardContainer() {
 
   const renderCards = post.map((post) => (
     <ProductCard
-      key={post.id}
-      id = {post.id}
-      image="https://via.placeholder.com/600/771796"
-      title={post.title}
-      description={post.body}
+      key={post._id}
+      id = {post._id}
+      image={post.image}
+      title={post.tital}
+      description={post.description}
+      price = {post.price}
       handleDispatch = {dispatch}
     />
   ));
