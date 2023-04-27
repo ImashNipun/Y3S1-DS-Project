@@ -1,15 +1,19 @@
 import "./styles.css";
 import { useState } from "react";
-import axios from "axios";
+import {axiosPrivate} from "../../../api/axios";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Container, Row, Col } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 
 const Login = () => {
   const [data, setData] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  // const location = useLocation();
+  // const from = location.state?.from?.pathname || "/";
+  const {setAuth} = useAuth();
 
   const handleChange = ({ currentTarget: input }) => {
     setData({ ...data, [input.name]: input.value });
@@ -18,14 +22,22 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:5000/api/users/login";
-      const { data: res } = await axios.post(url, data,{
-        //AxiosRequestConfig parameter
-        withCredentials: true //correct
-      });
-      // console.log(res);
+      const url = "/api/users/login";
+      const { data: res } = await axiosPrivate.post(url, data);
+      console.log(res);
       // localStorage.setItem("token", res.);
-      navigate("/about");
+      setAuth({userdata : res.data, role : res.data.type, accessToken: res.accesstoken})
+
+      if(res.data.type === "admin"){
+        navigate("/admin",{replace:true});
+      }
+      if(res.data.type === "buyer"){
+        navigate("/customer/profile",{replace:true});
+      }
+      if(res.data.type === "seller"){
+        navigate("/seller/profile",{replace:true});
+      }
+
     } catch (error) {
       if (
         error.response &&

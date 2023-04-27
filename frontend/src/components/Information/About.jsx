@@ -1,8 +1,10 @@
 import React from "react";
 import useRefreshToken from "../../hooks/useRefreshToken";
+import { useContext, useEffect} from "react";
+import AuthContext from "../../context/AuthContext";
 
 export default function About() {
-
+  const { auth } = useContext(AuthContext);
   //   const [postImage, setPostImage] = useState( { myFile : ""})
 
   // const handleFileUpload = async (e) => {
@@ -13,6 +15,12 @@ export default function About() {
   // };
 
   const refresh = useRefreshToken();
+
+  useEffect(()=>{
+
+    console.log(auth);
+
+  },[auth]);
 
   
   return (
