@@ -16,7 +16,7 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongoose": "^7.0.4",
-    "stripe": "^12.2.0"
+    "stripe": "^12.18.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
