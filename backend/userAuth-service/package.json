@@ -18,7 +18,7 @@
     "express-session": "^1.17.3",
     "joi-password-complexity": "^5.1.0",
     "jsonwebtoken": "^9.0.0",
-    "mongoose": "^7.0.4"
+    "mongoose": "^7.8.4"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
